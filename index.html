@@ -103,29 +103,32 @@
         </div>
     </div>
 
-
+    <!-- Audio element for the background music -->
     <audio id="background-music" preload="auto">
         <source src="./images/howls.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
     <script>
-        // Play audio at max volume 
-        var audio = document.getElementById('background-music');
-        audio.volume = 1; // Max volume
-        audio.play();
-
+        // Wait for the user to click the envelope to play the audio
         document.getElementById('envelope').addEventListener('click', function() {
-            var password = prompt("Our favorite icecream flavor:");
-            if (password === "mint") { 
-                // Dim the volume when the letter opens
-                audio.volume = 0.2; // Dimmed volume
+            var password = prompt("Our first inside joke:");
+            if (password === "saladleaves") { 
+                // Play the music at full volume
+                var audio = document.getElementById('background-music');
+                audio.volume = 1; // Max volume
+                audio.play(); // Play audio on user click interaction
 
-                // Fade out 
+                // Dim the volume when the letter opens
+                setTimeout(function() {
+                    audio.volume = 0.2; // Dimmed volume
+                }, 500);
+
+                // Fade out the envelope and header
                 document.getElementById('envelope').style.opacity = '0';
                 document.getElementById('header').style.opacity = '0';
 
-                // Fade in 
+                // Fade in the letter after a short delay
                 setTimeout(function() {
                     document.getElementById('letter').style.display = 'block';
                     document.getElementById('letter').style.opacity = '1';
