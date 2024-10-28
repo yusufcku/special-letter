@@ -82,8 +82,21 @@
         
         <div id="letter">
             <p class="cursive">Dear Tasnim,</p>
-            <p>Tasnim, im sorry for the long letter, it may be overhweling, so I dont expect you to read it all in one go. You’ve grown, I’ve grown, and we’ve grown alongside each other, and I still want to keep growing with you...</p>
-            <!-- Truncated for brevity -->
+
+            <p>Tasnim, you’ve grown, I’ve grown, and we’ve grown alongside each other, and I still want to keep growing with you. I made a huge mistake, the gravest one of my life. I disregarded your feelings and made it seem like they were mere exaggerations. I hurt you in a way I never should have, I’m truly sorry for ignoring your feelings and betraying the trust we built.</p>
+
+            <p>I was immature, careless, and selfish to even see how much I was hurting you. I only saw it after it was all done. I deeply apologize for all the pain I caused you. I’m sorry for ever making you cry, feel hurt, and feel confused. You had every right to feel the way you did. I’m sorry you had to meet that version of me.</p>
+
+            <p>I can’t imagine the shock, the feeling of thinking someone, one of the people you’re closest to, who you think would never do something and they do it. Your doubts of me, your disappointment, it’s all justified. I just hope in this last year the things I did didn’t make you doubt. Tasnim, wallah, this past year, more so going forward, I want to continue growing emotionally and with you. I want to better understand your feelings. I will always strive to be more thoughtful, more patient, and to really listen—truly listen to you. I will never dismiss your feelings again.</p>
+
+            <p>The us of a year ago isn’t the same as the us now. We’ve both individually grown so much, and I believe that our love has grown too. I will always want to build a future with you, to grow further with you, to grow old together. I want to get through our problems, our long distance, our struggles, together. And build ourselves, together. Tasnim I never want us to feel like our feelings are invalid. I want to always try our bests, and become our best selves together, we still have so much more to grow.</p>
+
+            <p>Even if we can’t be together now, I hope we can still stay in each other’s lives in some way, even if it’s just as acquaintances. You’ve always been not only my soulmate but my best friend. Know that I will always, and only, choose you. I’ll live my life hoping for your forgiveness, and I will always pray for you and your family. I’ll pray that, one day, our paths intertwine, and we can come together better, however and whenever that may.</p>
+
+            <p>I would rather keep trying with you, over and over again, forever, than try with anyone else, in any lifetime. You’re worth everything to me, again and again, until the end, and even beyond that. I will continue to work on myself and be the person you deserve. You are the strongest, kindest, and most beautiful person (inside and out) I know and you will continue to inspire me to be better. I will always support you.</p>
+
+            <p>I love you endlessly Tasnim. And that will never change.</p>
+
             <p class="cursive">With all my love,<br>Yusuf</p>
             
             <img id="red-panda" src="./images/red_panda.jpg" alt="Cute Red Panda">
@@ -97,13 +110,16 @@
     </audio>
 
     <script>
+        // Play audio at max volume as soon as the page loads
+        var audio = document.getElementById('background-music');
+        audio.volume = 1; // Max volume
+        audio.play();
+
         document.getElementById('envelope').addEventListener('click', function() {
             var password = prompt("Our first inside joke:");
             if (password === "saladleaves") { 
-                // Play the music and set volume
-                var audio = document.getElementById('background-music');
+                // Dim the volume when the letter opens
                 audio.volume = 0.2; // Dimmed volume
-                audio.play();
 
                 // Fade out the envelope and header
                 document.getElementById('envelope').style.opacity = '0';
