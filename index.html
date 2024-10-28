@@ -12,17 +12,21 @@
             margin: 0;
             padding: 0;
             text-align: center;
-            background-image: url('./images/flowers_border.png');
-            background-repeat: no-repeat;
-            background-size: contain; /* Better scaling for mobile */
-            background-position: top center; /* Center the background at the top */
-            background-attachment: fixed; /* Keep the background fixed */
             color: white; /* Set default text color to white */
+            /* Remove top border, keep it at the bottom */
+            background: #ffd1dc url('./images/flowers_border.png') no-repeat bottom center;
+            background-size: contain; /* Ensure the background fits the bottom */
+            background-attachment: fixed; /* Keep the background at the bottom when scrolling */
         }
         .container {
             padding: 20px;
             max-width: 100%; /* Full width on mobile */
             margin: 0 auto;
+            min-height: 100vh; /* Ensure the content takes the full height of the viewport */
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center the content */
         }
         .cursive {
             font-family: 'Great Vibes', cursive;
@@ -66,11 +70,6 @@
 
         /* Media queries for mobile */
         @media only screen and (max-width: 600px) {
-            body {
-                background-size: contain; /* Contain the background image on mobile */
-                background-position: top; /* Ensure it stays at the top */
-                background-repeat: no-repeat;
-            }
             h1 {
                 font-size: 24px; /* Smaller font size for title */
                 padding: 10px; /* Add some padding for better spacing */
@@ -126,29 +125,32 @@
     </div>
 
     <script>
-        document.getElementById('envelope').addEventListener('click', function() {
-            var password = prompt("Our favoite ice cream flavor:");
-            if (password === "Mint") { 
-                document.getElementById('letter').style.display = 'block';
-                document.getElementById('header').style.display = 'none'; // Hide header when letter is displayed
-                this.style.display = 'none';
-                // Remove the background image when the letter is displayed
-                document.body.style.backgroundImage = 'none';
-                
-                // Play the audio
-                var audio = document.getElementById('howls');
-                audio.volume = 0.2; // Set volume to 0.2
-                
-                // Ensure audio is allowed to play after interaction
-                if (audio.paused) {
-                    audio.play().catch(function(error) {
-                        console.error("Audio playback failed due to: " + error);
-                    });
-                }
-            } else {
-                alert("Incorrect password.");
-            }
+       document.getElementById('envelope').addEventListener('click', function() {
+    var password = prompt("Our favorite ice cream flavor:");
+    
+    if (password === "Mint") { 
+        document.getElementById('letter').style.display = 'block';
+        document.getElementById('header').style.display = 'none'; // Hide header when letter is displayed
+        this.style.display = 'none';
+        // Remove the background image when the letter is displayed
+        document.body.style.backgroundImage = 'none';
+        
+        // Play the audio
+        var audio = document.getElementById('howls');
+        audio.volume = 0.2; // Set volume to 0.2
+        
+        // Ensure audio is allowed to play after interaction
+        audio.play().then(function() {
+            console.log("Audio is playing successfully.");
+        }).catch(function(error) {
+            console.error("Audio playback failed:", error);
+            alert("Audio playback failed. Please check browser settings or file path.");
         });
+    } else {
+        alert("Incorrect password.");
+    }
+});
+
     </script>
 
 </body>
