@@ -14,8 +14,9 @@
             text-align: center;
             background-image: url('./images/flowers_border.png');
             background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
+            background-size: contain; /* Better scaling for mobile */
+            background-position: top center; /* Center the background at the top */
+            background-attachment: fixed; /* Keep the background fixed */
             color: white; /* Set default text color to white */
         }
         .container {
@@ -66,22 +67,24 @@
         /* Media queries for mobile */
         @media only screen and (max-width: 600px) {
             body {
-                background-size: contain;
-                background-position: top;
+                background-size: contain; /* Contain the background image on mobile */
+                background-position: top; /* Ensure it stays at the top */
+                background-repeat: no-repeat;
             }
             h1 {
-                font-size: 28px;
+                font-size: 24px; /* Smaller font size for title */
+                padding: 10px; /* Add some padding for better spacing */
             }
             p {
-                font-size: 16px;
+                font-size: 14px; /* Smaller font size for paragraph text */
             }
             #letter {
                 font-size: 16px;
                 line-height: 1.4;
             }
             #envelope {
-                width: 70%; /* Adjust the envelope size */
-                margin-top: -10px;
+                width: 60%; /* Adjust the envelope size for better appearance */
+                margin-top: 10px; /* Smaller top margin */
             }
         }
     </style>
@@ -124,8 +127,8 @@
 
     <script>
         document.getElementById('envelope').addEventListener('click', function() {
-            var password = prompt("Our first inside joke:");
-            if (password === "saladleaves") { 
+            var password = prompt("Our favoite ice cream flavor:");
+            if (password === "Mint" || password === "mint") { 
                 document.getElementById('letter').style.display = 'block';
                 document.getElementById('header').style.display = 'none'; // Hide header when letter is displayed
                 this.style.display = 'none';
@@ -135,7 +138,13 @@
                 // Play the audio
                 var audio = document.getElementById('howls');
                 audio.volume = 0.2; // Set volume to 0.2
-                audio.play();
+                
+                // Ensure audio is allowed to play after interaction
+                if (audio.paused) {
+                    audio.play().catch(function(error) {
+                        console.error("Audio playback failed due to: " + error);
+                    });
+                }
             } else {
                 alert("Incorrect password.");
             }
