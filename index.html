@@ -45,18 +45,23 @@
             margin-right: auto;
             line-height: 1.6;
             text-align: left;
-            opacity: 0;
-            transition: opacity 1s ease; /* Fade transition */
         }
         #letter p {
+            opacity: 0;
+            transform: translateY(20px); /* Start slightly lower */
+            transition: opacity 0.6s ease, transform 0.6s ease; /* Fade and move in smoothly */
             margin: 0 0 20px 0;
             font-weight: bold;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Drop shadow */
         }
+        .visible {
+            opacity: 1;
+            transform: translateY(0); /* Move to the final position */
+        }
         #header {
             text-align: center;
             opacity: 1;
-            transition: opacity 1s ease; /* Fade transition */
+            transition: opacity 1s ease, visibility 1s ease;
         }
         h1 {
             font-size: 48px;
@@ -110,11 +115,10 @@
     </audio>
 
     <script>
-        // Wait for the user to click the envelope to play the audio
+        // Play audio on envelope click
         document.getElementById('envelope').addEventListener('click', function() {
             var password = prompt("Our first inside joke:");
             if (password === "saladleaves") { 
-                // Play the music at full volume
                 var audio = document.getElementById('background-music');
                 audio.volume = 1; // Max volume
                 audio.play(); // Play audio on user click interaction
@@ -124,29 +128,44 @@
                     audio.volume = 0.2; // Dimmed volume
                 }, 500);
 
-                // Fade out the envelope and header
+                // Fade out the envelope and header using opacity and visibility
                 document.getElementById('envelope').style.opacity = '0';
                 document.getElementById('header').style.opacity = '0';
 
-                // Fade in the letter after a short delay
+                setTimeout(function() {
+                    document.getElementById('envelope').style.visibility = 'hidden';
+                    document.getElementById('header').style.visibility = 'hidden';
+                }, 1000); // Hides the elements after they fade out
+
+                // Show the letter
                 setTimeout(function() {
                     document.getElementById('letter').style.display = 'block';
                     document.getElementById('letter').style.opacity = '1';
 
-                    // Hide the envelope and header completely after the transition
-                    setTimeout(function() {
-                        document.getElementById('envelope').style.display = 'none';
-                        document.getElementById('header').style.display = 'none';
-                    }, 1000); // Duration matches the CSS transition
+                    // Reveal paragraphs on scroll
+                    window.addEventListener('scroll', revealOnScroll);
 
                     // Remove the background image smoothly
                     document.body.style.backgroundImage = 'none';
                 }, 500);
-                
             } else {
                 alert("Incorrect password.");
             }
         });
+
+        // Function to reveal elements on scroll
+        function revealOnScroll() {
+            const paragraphs = document.querySelectorAll('#letter p');
+            const windowHeight = window.innerHeight;
+
+            paragraphs.forEach(function(p) {
+                const elementTop = p.getBoundingClientRect().top;
+
+                if (elementTop < windowHeight - 100) {  // Adjust the threshold for earlier reveal
+                    p.classList.add('visible');
+                }
+            });
+        }
     </script>
 
 </body>
