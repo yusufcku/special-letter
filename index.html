@@ -126,7 +126,7 @@
 
             <p>The us of a year ago isn’t the same as the us now. We’ve both individually grown so much, and I believe that our love has grown too. Over the past year you've helped me spend time working on understanding both myself and us better. You showed me how much deeper love really goes, how mature of a feeling it is. You've healed me, making me no longer that insecure, ego filled, stagnant person, and you continue to fix me. I wish I could and can be there for you in this same way. This past year you and us have shaped my future, my perspective on love, and even my perspective on life. And in every part of it, I see you. We've exposed our most vulnerable, saddest, and regretful parts. I listened to your heartbeat, I saw your face, and I felt your soul which I never thought I would in this world.<p>
                 
-            <p>I will always want to build a future with you, to grow further with you, to grow old together. I want to get through our problems, our professional life problems, our dissagreements, our little petty fights, our long distance, our struggles, together. And build ourselves, together. Tasnim I never want you and us to feel like our feelings are invalid. Would you be open to continuing this journey together, trying our bests, and seeing where it takes us?</p>
+            <p>I will always want to build a future with you, to grow further with you, to grow old together. I want to get through our problems, our professional life problems, our dissagreements, our little petty fights, our long distance, our struggles, together. And build ourselves, together. Tasnim I never want you and us to feel like our feelings are invalid. Would you wana continue this journey together, trying our bests, and seeing where it takes us?</p>
 
             <p>Even if we can’t be together now, I hope we can still stay in each other’s lives in some way, even if it’s just as acquaintances. You’ve always been not only my soulmate but my best friend. Know that I will always, and only, choose you. I’ll live my life hoping for your forgiveness, and I will always pray for you and your family. I’ll pray that, one day, our paths intertwine, and we can come together better, however and whenever that may be.</p>
 
@@ -143,32 +143,24 @@
         <audio id="howls" src="./images/howls.mp3"></audio>
     </div>
 
-    <script>
-        document.getElementById('envelope').addEventListener('click', function() {
-            var password = prompt("Our favorite ice cream flavor:");
-            if (password === "Mint") { 
-                document.getElementById('letter').style.display = 'block';
-                document.getElementById('header').style.display = 'none'; // Hide header when letter is displayed
-                this.style.display = 'none';
-                // Remove the background image when the letter is displayed
-                document.body.style.backgroundImage = 'none';
-                
-                // Play the audio
-                var audio = document.getElementById('howls');
-                audio.volume = 0.01; // Set volume to 0.2
-                
-                // Ensure audio is allowed to play after interaction
-                audio.play().then(function() {
-                    console.log("Audio is playing successfully.");
-                }).catch(function(error) {
-                    console.error("Audio playback failed:", error);
-                    alert("Audio playback failed. Please check browser settings or file path.");
-                });
-            } else {
-                alert("Incorrect password.");
-            }
-        });
-    </script>
+   <script>
+    document.getElementById('envelope').addEventListener('click', function() {
+        var password = prompt("Our favorite ice cream flavor:");
+        if (password === "Mint") { 
+            document.getElementById('letter').style.display = 'block';
+            document.getElementById('header').style.display = 'none'; // Hide header when letter is displayed
+            this.style.display = 'none';
+            // Remove the background image when the letter is displayed
+            document.body.style.backgroundImage = 'none';
+            
+            // Stop the audio once the letter is opened
+            var audio = document.getElementById('howls');
+            audio.pause(); // Stop the audio when the letter is opened
+        } else {
+            alert("Incorrect password.");
+        }
+    });
+</script>
     
     <footer>
     <p>coded by yusufcku</p>
