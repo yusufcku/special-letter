@@ -108,6 +108,7 @@
 <body>
 
     <div class="container">
+        <button id="musicButton" style="position: absolute; top: 10px; right: 10px; padding: 10px 20px; background-color: #fff; border: none; cursor: pointer; font-weight: bold;">Play Music</button>
         <div id="header"> 
             <h1 class="cursive">For Tati</h1>
             <p>I hope you're well, I want to know where your heart is, and show you mine.</p>
@@ -144,23 +145,39 @@
     </div>
 
    <script>
-    document.getElementById('envelope').addEventListener('click', function() {
-        var password = prompt("Our favorite ice cream flavor:");
-        if (password === "Mint") { 
-            document.getElementById('letter').style.display = 'block';
-            document.getElementById('header').style.display = 'none'; // Hide header when letter is displayed
-            this.style.display = 'none';
-            // Remove the background image when the letter is displayed
-            document.body.style.backgroundImage = 'none';
-            
-            // Stop the audio once the letter is opened
-            var audio = document.getElementById('howls');
-            audio.pause(); // Stop the audio when the letter is opened
-        } else {
-            alert("Incorrect password.");
-        }
-    });
-</script>
+        // Select the button and the audio element
+        var musicButton = document.getElementById('musicButton');
+        var audio = document.getElementById('howls');
+        audio.volume = 0.2; // Set the initial volume
+
+        // Add click event to the button
+        musicButton.addEventListener('click', function() {
+            if (audio.paused) {
+                audio.play(); // Play the music
+                musicButton.textContent = "Pause Music"; // Change button text
+            } else {
+                audio.pause(); // Pause the music
+                musicButton.textContent = "Play Music"; // Change button text
+            }
+        });
+
+        document.getElementById('envelope').addEventListener('click', function() {
+            var password = prompt("Our favorite ice cream flavor:");
+            if (password === "Mint") { 
+                document.getElementById('letter').style.display = 'block';
+                document.getElementById('header').style.display = 'none'; // Hide header when letter is displayed
+                this.style.display = 'none';
+                // Remove the background image when the letter is displayed
+                document.body.style.backgroundImage = 'none';
+                
+                // Stop the audio when the letter is opened
+                audio.pause(); // Stop the audio
+                musicButton.style.display = 'none'; // Hide the music button
+            } else {
+                alert("Incorrect password.");
+            }
+        });
+    </script>
     
     <footer>
     <p>coded by yusufcku</p>
