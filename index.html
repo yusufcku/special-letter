@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Letter for You</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ffd1dc; /* Pastel Pink */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-image: url('./images/flowers_border.png');
+            background-repeat: no-repeat;
+            background-size: cover; /* Ensures background covers the full screen */
+            background-position: top center; /* Centers the background at the top */
+            min-height: 100vh; /* Ensures the background takes up the full height of the viewport */
+            color: white; /* Set default text color to white */
+        }
+        footer {
+            position: fixed; /* Keeps the footer at the bottom */
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+            font-family: 'Arial', sans-serif;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Text shadow for consistency */
+            z-index: 1000; /* Ensures it stays above other content */
+        }
+        .container {
+            padding: 20px;
+            max-width: 100%; /* Full width on mobile */
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        .cursive {
+            font-family: 'Great Vibes', cursive;
+        }
+        #envelope {
+            margin-top: -30px;
+            width: 80%; /* Responsive width */
+            max-width: 300px;
+            height: auto;
+            cursor: pointer;
+        }
+        #tv {
+            margin-top: 20px;
+            width: 55%; /* Responsive width */
+            max-width: 220px;
+            height: auto;
+            cursor: pointer;
+        }
+        #letter {
+            display: none;
+            margin-top: 20px;
+            font-size: 18px;
+            color: white;
+            max-width: 100%;
+            padding: 0 10px; /* Add padding for mobile */
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            text-align: left;
+        }
+        #letter p {
+            margin: 0 0 20px 0;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        #header {
+            text-align: center;
+        }
+        h1 {
+            font-size: 45px; /* Adjusted font size for mobile */
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            font-weight: bold; 
+        }
+        p {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            font-weight: bold; 
+        }
+
+        /* Media queries for mobile */
+        @media only screen and (max-width: 600px) {
+            body {
+                background-size: cover; /* Ensure the background covers the full screen */
+                background-position: top; /* Keep the background centered at the top */
+                min-height: 100vh; /* Ensure the background image takes up the full height */
+            }
+            h1 {
+                font-size: 24px; /* Smaller font size for title */
+                padding: 10px; /* Add some padding for better spacing */
+            }
+            p {
+                font-size: 16px; /* Smaller font size for paragraph text */
+            }
+            #letter {
+                font-size: 16px;
+                line-height: 1.4;
+            }
+            #envelope {
+                width: 60%; /* Adjust the envelope size for better appearance */
+                margin-top: 10px; /* Smaller top margin */
+            }
+            #tv {
+                width: 60%;
+                margin-top: 10px;
+            }
+        }
+    </style>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GOOGLE_ANALYTICS_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'YOUR_GOOGLE_ANALYTICS_ID');
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <button id="musicButton" style="position: absolute; top: 10px; right: 10px; padding: 10px 20px; background-color: #fff; border: none; cursor: pointer; font-weight: bold;">Cool Button</button>
+        <div id="header"> 
+            <h1 class="cursive">For Tati</h1>
+            <p>I hope you're well, I want to know where your heart is, and show you mine. This is a website I was working on for our memories but I decided to repurpose it for this.</p>
+            <p>Click the envelope to open</p>
+        </div>
+
+        <img id="envelope" src="./images/envelope.png" alt="Open Letter">
+        
+        <div id="letter">
+            <p class="cursive"> My Dear Tasnim,</p>
+            <p>Tasnim, im sorry for the long letter, it may be overhweling, so I dont expect you to read it all in one go. You’ve grown, I’ve grown, and we’ve grown alongside each other, and I believe we can continue to grow together. I made a huge mistake, the gravest one of my life, you didn’t deserve to be treated that way, nobody does, especially someone as special as you. I disregarded your feelings and made it seem like they were mere exaggerations. I let my imature ego take me over, and I didn't listen to you, blind to how much I was hurting you. I lost my self, making the mistake of brushing you off and saying it's just a "friend". Deep down I was never aware of it at the time, but now I can't find any reason besides that I was subconsoisly insecure at the time and seeking a sense of validation or something. I’m sorry you had to meet that version of me.</p>
+
+            <p>I was immature, careless, and selfish to even see how much I was hurting you. I only saw it after it was all done. I deeply apologize for all the pain I caused you. I’m sorry for breaking the trust we build, for ever making you cry, feel hurt, and feel confused. You had every right to feel the way you did.</p>
+
+            <p>I can only imagine the shock, the feeling of thinking someone, one of the people you’re closest to, who you think would never do something and they do it. Your doubts of me, your disappointment, it’s all justified. I just hope in this last year the things I did didn’t cause you further pain or make you doubt, and that you had happy moments. Tasnim, wallah, going forward, I hope we can continue growing emotionally and growing. I will and want to better understand your feelings, your likes, your dislikes, your habits, your favorites, you. I will always strive to be more thoughtful, more patient, and to really listen—truly listen to you. I will never dismiss your feelings again, your feelings will always be heard, and I hope hints of that showed throughout the pasy year.</p>
+
+            <p>The us of a year ago isn’t the same as the us now. We’ve both individually grown so much, and I believe that our love has grown too. Over the past year you've helped me spend time working on understanding both myself and us better. You showed me how much deeper love really goes, how mature of a feeling it is. You've healed me, making me no longer that insecure, ego filled, stagnant person, and you continue to fix me. I wish I could and can be there for you in this same way. This past year you and us have shaped my future, my perspective on love, and even my perspective on life. And in every part of it, I see you. We've exposed our most vulnerable, saddest, and regretful parts. We listened to eachothers heartbeat, we saw eachothers faces (actual face reveals haha), and we felt eachothers souls, which I never thought I would in this world.</p>
+                
+            <p>I will always hope to build a future with you, to grow further with you, to grow old together. I want to get through our problems, our professional life problems, our dissagreements, our little petty fights, our long distance, our struggles, together. And build ourselves, together. Tasnim I never want you and us to feel like our feelings are invalid. We're still so young and learning, with so much ahead of us, both good and bad, we only did a fraction of what we wished, and I hope we can work through it together, how we worked through other difficult times. Would you want to continue (dosen't need to be now) growing together, trying our bests, and seeing where it takes us in the future?</p>
+
+            <p>Even if we can’t be together now, I hope we can still stay in each other’s lives in some way, even if it’s just as acquaintances. You’ve always been not only a soulmate to me but my best friend. Know that I will always, and only, choose you. I’ll live my life hoping for your forgiveness, and I will always pray for you and your family.</p>
+
+            <p>I would rather keep trying with you tasnim, over and over again, forever, than try with anyone else, in any lifetime. You’re worth everything to me, again and again, until the end, and even beyond that. I will continue to work on myself and be the person you deserve. You are the strongest, kindest, and most beautiful person (inside and out) I know and you will continue to inspire me to be better. I will always support you.</p>
+
+            <p>I love you Tasnim. And that will never change. Im sorry.</p>
+
+            <p class="cursive">Yours,<br>Yusuf</p>
+            
+            <img id="red-panda" src="./images/red_panda.jpg" alt="Cute Red Panda" style="width:100%;max-width:300px;">
+        </div>
+
+        <!-- TV image that leads to video page -->
+        <img id="tv" src="./images/tv_image.png" alt="TV with Videos" onclick="openVideoPage()">
+
+        <audio id="howls" src="./images/howls.mp3" autoplay loop></audio>
+    </div>
+
+   <script>
+        // Function to handle the TV click and password protection
+        function openVideoPage() {
+            var password = prompt("Tell me whats more than love:");
+            if (password === "Blub") { 
+                window.location.href = "videos.html"; // Redirect to videos page if password is correct
+            } else {
+                alert("Incorrect password, try again.");
+            }
+        }
+
+        // Select the button and the audio element
+        var musicButton = document.getElementById('musicButton');
+        var audio = document.getElementById('howls');
+        audio.volume = 0.2; // Set the initial volume
+
+        // Add click event to the button
+        musicButton.addEventListener('click', function() {
+            if (audio.paused) {
+                audio.play(); // Play the music
+                musicButton.textContent = "Pause Music"; // Change button text
+            } else {
+                audio.pause(); // Pause the music
+                musicButton.textContent = "Play Music"; // Change button text
+            }
+        });
+
+        document.getElementById('envelope').addEventListener('click', function() {
+            var password = prompt("Our favorite ice cream flavor:");
+            if (password === "Mint") { 
+                document.getElementById('letter').style.display = 'block';
+                document.getElementById('header').style.display = 'none'; // Hide header when letter is displayed
+                this.style.display = 'none'; // Hide the envelope
+                document.getElementById('tv').style.display = 'none'; // Hide the TV
+                // Remove the background image when the letter is displayed
+                document.body.style.backgroundImage = 'none';
+                
+                // Stop the audio when the letter is opened
+                audio.pause(); // Stop the audio
+                musicButton.style.display = 'none'; // Hide the music button
+            } else {
+                alert("hmm try again, maybe the capitals.");
+            }
+        });
+    </script>
+    
+    <footer>
+        <p>coded by yusufcku for her</p>
+    </footer>
+
+</body>
+</html>
